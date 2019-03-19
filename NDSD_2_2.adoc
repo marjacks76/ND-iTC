@@ -1,3 +1,7 @@
+ifdef::env-github[]
+:imagesdir: sdimages/
+endif::[]
+
 image:extracted-media/media/image1.png[image,width=578,height=912]
 
 *Foreword*
