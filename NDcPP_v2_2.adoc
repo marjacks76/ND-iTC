@@ -1,10 +1,17 @@
-collaborative Protection Profile for +
-Network Devices
+:toc:
+:toclevels: 3
+:toc-title!:
+:toc-placement!:
+:revnumber: 2.2
+:revdate: 20-12-2019
 
-* +
-*
+= collaborative Protection Profile for Network Devices
 
-== Acknowledgements 
+Version: {revnumber}
+
+Date: {revdate}
+
+== Acknowledgements
 
 This collaborative Protection Profile (cPP) was developed by the Network Device international Technical Community (ND iTC) with representatives from industry, Government agencies, Common Criteria Test Laboratories, and members of academia.
 
@@ -67,505 +74,9 @@ CCMB-2017-04-004, Version 3.1, Revision 5, April 2017.
 |0.1 |05-Sep-2014 |Draft published for Public review
 |===
 
-== Contents
+*Table of Contents*
 
-link:#acknowledgements[Acknowledgements 2]
-
-link:#preface[0. Preface 3]
-
-link:#objectives-of-document[0.1 Objectives of Document 3]
-
-link:#scope-of-document[0.2 Scope of Document 3]
-
-link:#intended-readership[0.3 Intended Readership 3]
-
-link:#related-documents[0.4 Related Documents 3]
-
-link:#revision-history[0.5 Revision History 5]
-
-link:#pp-introduction[1. PP Introduction 12]
-
-link:#pp-reference-identification[1.1 PP Reference Identification 12]
-
-link:#toe-overview[1.2 TOE Overview 12]
-
-link:#toe-use-cases[1.3 TOE Use Cases 13]
-
-link:#_Toc26879342[2. CC Conformance 15]
-
-link:#_Toc26879343[3. Introduction to Distributed TOEs 16]
-
-link:#supported-distributed-toe-use-cases[3.1 Supported Distributed TOE Use Cases 16]
-
-link:#unsupported-distributed-toe-use-cases[3.2 Unsupported Distributed TOE Use Cases 20]
-
-link:#registration-of-components-of-a-distributed-toe[3.3 Registration of components of a distributed TOE 21]
-
-link:#allocation-of-requirements-in-distributed-toes[3.4 Allocation of Requirements in Distributed TOEs 24]
-
-link:#security-problem-definition[4. Security Problem Definition 30]
-
-link:#threats[4.1 Threats 30]
-
-link:#communications-with-the-network-device[4.1.1 Communications with the Network Device 30]
-
-link:#t.unauthorized_administrator_access[4.1.1.1 T.UNAUTHORIZED_ADMINISTRATOR_ACCESS 31]
-
-link:#t.weak_cryptography[4.1.1.2 T.WEAK_CRYPTOGRAPHY 31]
-
-link:#t.untrusted_communication_channels[4.1.1.3 T.UNTRUSTED_COMMUNICATION_CHANNELS 32]
-
-link:#t.weak_authentication_endpoints[4.1.1.4 T.WEAK_AUTHENTICATION_ENDPOINTS 32]
-
-link:#valid-updates[4.1.2 Valid Updates 33]
-
-link:#t.update_compromise[4.1.2.1 T.UPDATE_COMPROMISE 33]
-
-link:#audited-activity[4.1.3 Audited Activity 34]
-
-link:#t.undetected_activity[4.1.3.1 T.UNDETECTED_ACTIVITY 34]
-
-link:#administrator-and-device-credentials-and-data[4.1.4 Administrator and Device Credentials and Data 34]
-
-link:#t.security_functionality_compromise[4.1.4.1 T.SECURITY_FUNCTIONALITY_COMPROMISE 35]
-
-link:#t.password_cracking[4.1.4.2 T.PASSWORD_CRACKING 35]
-
-link:#device-failure[4.1.5 Device Failure 35]
-
-link:#t.security_functionality_failure[4.1.5.1 T.SECURITY_FUNCTIONALITY_FAILURE 36]
-
-link:#assumptions[4.2 Assumptions 36]
-
-link:#a.physical_protection[4.2.1 A.PHYSICAL_PROTECTION 36]
-
-link:#a.limited_functionality[4.2.2 A.LIMITED_FUNCTIONALITY 36]
-
-link:#a.no_thru_traffic_protection[4.2.3 A.NO_THRU_TRAFFIC_PROTECTION 37]
-
-link:#a.trusted_administrator[4.2.4 A.TRUSTED_ADMINISTRATOR 37]
-
-link:#a.regular_updates[4.2.5 A.REGULAR_UPDATES 37]
-
-link:#a.admin_credentials_secure[4.2.6 A.ADMIN_CREDENTIALS_SECURE 37]
-
-link:#a.components_running-applies-to-distributed-toes-only[4.2.7 A.COMPONENTS_RUNNING (applies to distributed TOEs only) 37]
-
-link:#a.residual_information[4.2.8 A.RESIDUAL_INFORMATION 38]
-
-link:#a.vs_trusted_administrator-applies-to-vnds-only[4.2.9 A.VS_TRUSTED_ADMINISTRATOR (applies to vNDs only) 38]
-
-link:#a.vs_regular_updates-applies-to-vnds-only[4.2.10 A.VS_REGULAR_UPDATES (applies to vNDs only) 38]
-
-link:#a.vs_isolaton-applies-to-vnds-only[4.2.11 A.VS_ISOLATON (applies to vNDs only) 38]
-
-link:#a.vs_correct_configuration-applies-to-vnds-only[4.2.12 A.VS_CORRECT_CONFIGURATION (applies to vNDs only) 38]
-
-link:#organizational-security-policy[4.3 Organizational Security Policy 39]
-
-link:#p.access_banner[4.3.1 P.ACCESS_BANNER 39]
-
-link:#security-objectives[5. Security Objectives 40]
-
-link:#security-objectives-for-the-operational-environment[5.1 Security Objectives for the Operational Environment 40]
-
-link:#oe.physical[5.1.1 OE.PHYSICAL 40]
-
-link:#oe.no_general_purpose[5.1.2 OE.NO_GENERAL_PURPOSE 40]
-
-link:#oe.no_thru_traffic_protection[5.1.3 OE.NO_THRU_TRAFFIC_PROTECTION 40]
-
-link:#oe.trusted_admin[5.1.4 OE.TRUSTED_ADMIN 40]
-
-link:#oe.updates[5.1.5 OE.UPDATES 40]
-
-link:#oe.admin_credentials_secure[5.1.6 OE.ADMIN_CREDENTIALS_SECURE 40]
-
-link:#oe.components_running-applies-to-distributed-toes-only[5.1.7 OE.COMPONENTS_RUNNING (applies to distributed TOEs only) 40]
-
-link:#oe.residual_information[5.1.8 OE.RESIDUAL_INFORMATION 41]
-
-link:#oe.vm_configuration-applies-to-vnds-only[*5.1.1* OE.VM_CONFIGURATION (applies to vNDs only) 41]
-
-link:#security-functional-requirements[6. Security Functional Requirements 42]
-
-link:#conventions[6.1 Conventions 42]
-
-link:#sfr-architecture[6.2 SFR Architecture 43]
-
-link:#security-audit-fau[6.3 Security Audit (FAU) 48]
-
-link:#security-audit-data-generation-fau_gen[6.3.1 Security Audit Data generation (FAU_GEN) 48]
-
-link:#fau_gen.1-audit-data-generation[6.3.1.1 FAU_GEN.1 Audit data generation 48]
-
-link:#fau_gen.2-user-identity-association[6.3.1.2 FAU_GEN.2 User identity association 52]
-
-link:#security-audit-event-storage-extended-fau_stg_ext[6.3.2 Security audit event storage (Extended – FAU_STG_EXT) 52]
-
-link:#fau_-stg_ext.1-protected-audit-event-storage[6.3.2.1 FAU_ STG_EXT.1 Protected Audit Event Storage 52]
-
-link:#cryptographic-support-fcs[6.4 Cryptographic Support (FCS) 54]
-
-link:#cryptographic-key-management-fcs_ckm[6.4.1 Cryptographic Key Management (FCS_CKM) 54]
-
-link:#fcs_ckm.1-cryptographic-key-generation-refinement[6.4.1.1 FCS_CKM.1 Cryptographic Key Generation (Refinement) 54]
-
-link:#fcs_ckm.2-cryptographic-key-establishment-refinement[6.4.1.2 FCS_CKM.2 Cryptographic Key Establishment (Refinement) 55]
-
-link:#fcs_ckm.4-cryptographic-key-destruction[6.4.1.3 FCS_CKM.4 Cryptographic Key Destruction 56]
-
-link:#cryptographic-operation-fcs_cop[6.4.2 Cryptographic Operation (FCS_COP) 57]
-
-link:#fcs_cop.1-cryptographic-operation[6.4.2.1 FCS_COP.1 Cryptographic Operation 57]
-
-link:#random-bit-generation-extended-fcs_rbg_ext[6.4.3 Random Bit Generation (Extended – FCS_RBG_EXT) 59]
-
-link:#fcs_rbg_ext.1-random-bit-generation[6.4.3.1 FCS_RBG_EXT.1 Random Bit Generation 59]
-
-link:#identification-and-authentication-fia[6.5 Identification and Authentication (FIA) 60]
-
-link:#authentication-failure-management-fia_afl[6.5.1 Authentication Failure Management (FIA_AFL) 60]
-
-link:#fia_afl.1-authentication-failure-management-refinement[6.5.1.1 FIA_AFL.1 Authentication Failure Management (Refinement) 60]
-
-link:#password-management-extended-fia_pmg_ext[6.5.2 Password Management (Extended – FIA_PMG_EXT) 61]
-
-link:#fia_pmg_ext.1-password-management[6.5.2.1 FIA_PMG_EXT.1 Password Management 61]
-
-link:#user-identification-and-authentication-extended-fia_uia_ext[6.5.3 User Identification and Authentication (Extended – FIA_UIA_EXT) 61]
-
-link:#fia_uia_ext.1-user-identification-and-authentication[6.5.3.1 FIA_UIA_EXT.1 User Identification and Authentication 61]
-
-link:#user-authentication-fia_uau-extended-fia_uau_ext[6.5.4 User authentication (FIA_UAU) (Extended – FIA_UAU_EXT) 62]
-
-link:#fia_uau_ext.2-password-based-authentication-mechanism[6.5.4.1 FIA_UAU_EXT.2 Password-based Authentication Mechanism 62]
-
-link:#fia_uau.7-protected-authentication-feedback[6.5.4.2 FIA_UAU.7 Protected Authentication Feedback 63]
-
-link:#security-management-fmt[6.6 Security Management (FMT) 63]
-
-link:#management-of-functions-in-tsf-fmt_mof[6.6.1 Management of functions in TSF (FMT_MOF) 63]
-
-link:#fmt_mof.1manualupdate-management-of-security-functions-behaviour[6.6.1.1 FMT_MOF.1/ManualUpdate Management of security functions behaviour 63]
-
-link:#management-of-tsf-data-fmt_mtd[6.6.2 Management of TSF Data (FMT_MTD) 64]
-
-link:#fmt_mtd.1coredata-management-of-tsf-data[6.6.2.1 FMT_MTD.1/CoreData Management of TSF Data 64]
-
-link:#specification-of-management-functions-fmt_smf[6.6.3 Specification of Management Functions (FMT_SMF) 64]
-
-link:#fmt_smf.1-specification-of-management-functions[6.6.3.1 FMT_SMF.1 Specification of Management Functions 64]
-
-link:#security-management-roles-fmt_smr[6.6.4 Security management roles (FMT_SMR) 67]
-
-link:#fmt_smr.2-restrictions-on-security-roles[6.6.4.1 FMT_SMR.2 Restrictions on security roles 67]
-
-link:#protection-of-the-tsf-fpt[6.7 Protection of the TSF (FPT) 68]
-
-link:#protection-of-tsf-data-extended-fpt_skp_ext[6.7.1 Protection of TSF Data (Extended – FPT_SKP_EXT) 68]
-
-link:#fpt_skp_ext.1-protection-of-tsf-data-for-reading-of-all-pre-shared-symmetric-and-private-keys[6.7.1.1 FPT_SKP_EXT.1 Protection of TSF Data (for reading of all pre-shared, symmetric and private keys) 68]
-
-link:#protection-of-administrator-passwords-extended-fpt_apw_ext[6.7.2 Protection of Administrator Passwords (Extended – FPT_APW_EXT) 69]
-
-link:#fpt_apw_ext.1-protection-of-administrator-passwords[6.7.2.1 FPT_APW_EXT.1 Protection of Administrator Passwords 69]
-
-link:#tsf-testing-extended-fpt_tst_ext[6.7.3 TSF testing (Extended – FPT_TST_EXT) 69]
-
-link:#fpt_tst_ext.1-tsf-testing-extended[6.7.3.1 FPT_TST_EXT.1 TSF Testing (Extended) 69]
-
-link:#trusted-update-fpt_tud_ext[6.7.4 Trusted Update (FPT_TUD_EXT) 70]
-
-link:#fpt_tud_ext.1-trusted-update[6.7.4.1 FPT_TUD_EXT.1 Trusted Update 70]
-
-link:#time-stamps-extended-fpt_stm_ext[6.7.5 Time stamps (Extended – FPT_STM_EXT)) 73]
-
-link:#fpt_stm_ext.1-reliable-time-stamps[6.7.5.1 FPT_STM_EXT.1 Reliable Time Stamps 73]
-
-link:#toe-access-fta[6.8 TOE Access (FTA) 74]
-
-link:#tsf-initiated-session-locking-extended-fta_ssl_ext[6.8.1 TSF-initiated Session Locking (Extended – FTA_SSL_EXT) 74]
-
-link:#fta_ssl_ext.1-tsf-initiated-session-locking[6.8.1.1 FTA_SSL_EXT.1 TSF-initiated Session Locking 74]
-
-link:#session-locking-and-termination-fta_ssl[6.8.2 Session locking and termination (FTA_SSL) 74]
-
-link:#fta_ssl.3-tsf-initiated-termination-refinement[6.8.2.1 FTA_SSL.3 TSF-initiated Termination (Refinement) 74]
-
-link:#fta_ssl.4-user-initiated-termination-refinement[6.8.2.2 FTA_SSL.4 User-initiated Termination (Refinement) 75]
-
-link:#toe-access-banners-fta_tab[6.8.3 TOE access banners (FTA_TAB) 75]
-
-link:#fta_tab.1-default-toe-access-banners-refinement[6.8.3.1 FTA_TAB.1 Default TOE Access Banners (Refinement) 75]
-
-link:#trusted-pathchannels-ftp[6.9 Trusted path/channels (FTP) 75]
-
-link:#trusted-channel-ftp_itc[6.9.1 Trusted Channel (FTP_ITC) 76]
-
-link:#ftp_itc.1-inter-tsf-trusted-channel-refinement[6.9.1.1 FTP_ITC.1 Inter-TSF trusted channel (Refinement) 76]
-
-link:#trusted-path-ftp_trp[6.9.2 Trusted Path (FTP_TRP) 77]
-
-link:#ftp_trp.1admin-trusted-path-refinement[6.9.2.1 FTP_TRP.1/Admin Trusted Path (Refinement) 77]
-
-link:#security-assurance-requirements[7. Security Assurance Requirements 78]
-
-link:#ase-security-target[7.1 ASE: Security Target 78]
-
-link:#adv-development[7.2 ADV: Development 79]
-
-link:#basic-functional-specification-adv_fsp.1[7.2.1 Basic Functional Specification (ADV_FSP.1) 79]
-
-link:#agd-guidance-documentation[7.3 AGD: Guidance Documentation 79]
-
-link:#operational-user-guidance-agd_ope.1[7.3.1 Operational User Guidance (AGD_OPE.1) 80]
-
-link:#preparative-procedures-agd_pre.1[7.3.2 Preparative Procedures (AGD_PRE.1) 80]
-
-link:#class-alc-life-cycle-support[7.4 Class ALC: Life-cycle Support 80]
-
-link:#labelling-of-the-toe-alc_cmc.1[7.4.1 Labelling of the TOE (ALC_CMC.1) 80]
-
-link:#toe-cm-coverage-alc_cms.1[7.4.2 TOE CM Coverage (ALC_CMS.1) 80]
-
-link:#class-ate-tests[7.5 Class ATE: Tests 80]
-
-link:#independent-testing-conformance-ate_ind.1[7.5.1 Independent Testing – Conformance (ATE_IND.1) 81]
-
-link:#class-ava-vulnerability-assessment[7.6 Class AVA: Vulnerability Assessment 81]
-
-link:#vulnerability-survey-ava_van.1[7.6.1 Vulnerability Survey (AVA_VAN.1) 81]
-
-link:#optional-requirements[A. Optional Requirements 82]
-
-link:#audit-events-for-optional-sfrs[A.1 Audit Events for Optional SFRs 82]
-
-link:#security-audit-fau-1[A.2 Security Audit (FAU) 83]
-
-link:#security-audit-event-storage-fau_stg.1-extended-fau_stg_ext[A.2.1 Security audit event storage (FAU_STG.1 & Extended – FAU_STG_EXT) 83]
-
-link:#fau_stg.1-protected-audit-trail-storage[A.2.1.1 FAU_STG.1 Protected audit trail storage 84]
-
-link:#fau_-stg_ext.2locspace-counting-lost-audit-data[A.2.1.2 FAU_ STG_EXT.2/LocSpace Counting lost audit data 84]
-
-link:#fau_-stg_ext.3locspace-action-in-case-of-possible-audit-data-loss[A.2.1.3 FAU_ STG_EXT.3/LocSpace Action in case of possible audit data loss 84]
-
-link:#identification-and-authentication-fia-1[A.3 Identification and Authentication (FIA) 85]
-
-link:#authentication-using-x.509-certificates-extended-fia_x509_ext[A.3.1 Authentication using X.509 certificates (Extended – FIA_X509_EXT) 85]
-
-link:#fia_x509_ext.1itt-certificate-validation[A.3.1.1 FIA_X509_EXT.1/ITT Certificate Validation 85]
-
-link:#protection-of-the-tsf-fpt-1[A.4 Protection of the TSF (FPT) 87]
-
-link:#internal-toe-tsf-data-transfer-fpt_itt[A.4.1 Internal TOE TSF data transfer (FPT_ITT) 87]
-
-link:#fpt_itt.1-basic-internal-tsf-data-transfer-protection-refinement[A.4.1.1 FPT_ITT.1 Basic internal TSF data transfer protection (Refinement) 87]
-
-link:#trusted-pathchannels-ftp-1[A.5 Trusted Path/Channels (FTP) 87]
-
-link:#trusted-path-ftp_trp-1[A.5.1 Trusted Path (FTP_TRP) 87]
-
-link:#ftp_trp.1join-trusted-path-refinement[A.5.1.1 FTP_TRP.1/Join Trusted Path (Refinement) 87]
-
-link:#communication-fco[A.6 Communication (FCO) 88]
-
-link:#communication-partner-control-fco_cpc_ext[A.6.1 Communication Partner Control (FCO_CPC_EXT) 88]
-
-link:#fco_cpc_ext.1-component-registration-channel-definition[A.6.1.1 *FCO_CPC_EXT.1 Component Registration Channel Definition* 89]
-
-link:#cryptographic-support-fcs-1[A.7 Cryptographic Support (FCS) 90]
-
-link:#cryptographic-protocols-extended-fcs_dtlsc_ext-fcs_dtlss_ext-fcs_tlsc_ext-fcs_tlss_ext[A.7.1 Cryptographic Protocols (Extended – FCS_DTLSC_EXT, FCS_DTLSS_EXT, FCS_TLSC_EXT, FCS_TLSS_EXT) 90]
-
-link:#fcs_dtlsc_ext-fcs_dtlss_ext-dtls-protocol[A.7.1.1 FCS_DTLSC_EXT & FCS_DTLSS_EXT DTLS Protocol 90]
-
-link:#fcs_tlsc_ext-fcs_tlss_ext-tls-protocol[A.7.1.2 FCS_TLSC_EXT & FCS_TLSS_EXT TLS Protocol 92]
-
-link:#selection-based-requirements[B. Selection-Based Requirements 95]
-
-link:#audit-events-for-selection-based-sfrs[B.1 Audit Events for Selection-Based SFRs 95]
-
-link:#security-audit-fau-2[B.2 Security Audit (FAU) 96]
-
-link:#security-audit-data-generation-extended---fau_gen_ext[B.2.1 Security Audit Data Generation (Extended - FAU_GEN_EXT) 96]
-
-link:#fau_gen_ext.1-security-audit-data-generation-for-distributed-toe-component[B.2.1.1 FAU_GEN_EXT.1 Security Audit Data Generation for Distributed TOE component 96]
-
-link:#security-audit-event-storage-extended---fau_stg_ext[B.2.2 Security Audit Event Storage (Extended - FAU_STG_EXT) 97]
-
-link:#fau_stg_ext.4-protected-local-audit-event-storage-for-distributed-toes[B.2.2.1 FAU_STG_EXT.4 Protected Local Audit Event Storage for Distributed TOEs 97]
-
-link:#fau_stg_ext.5-protected-remote-audit-event-storage-for-distributed-toes[B.2.2.2 FAU_STG_EXT.5 Protected Remote Audit Event Storage for Distributed TOEs 98]
-
-link:#cryptographic-support-fcs-2[B.3 Cryptographic Support (FCS) 98]
-
-link:#cryptographic-protocols-extended-fcs_dtlsc_ext-fcs_dtlss_ext-fcs_https_ext-fcs_-ipsec_ext-fcs_ntp_ext-fcs_sshc_ext-fcs_sshs_ext-fcs_tlsc_ext-fcs_tlss_ext[B.3.1 Cryptographic Protocols (Extended – FCS_DTLSC_EXT, FCS_DTLSS_EXT, FCS_HTTPS_EXT, FCS_ IPSEC_EXT, FCS_NTP_EXT, FCS_SSHC_EXT, FCS_SSHS_EXT, FCS_TLSC_EXT, FCS_TLSS_EXT) 98]
-
-link:#fcs_dtlsc_ext-fcs_dtlss_ext-dtls-protocol-1[B.3.1.1 FCS_DTLSC_EXT & FCS_DTLSS_EXT DTLS Protocol 98]
-
-link:#fcs_https_ext-https-protocol[B.3.1.2 FCS_HTTPS_EXT HTTPS Protocol 103]
-
-link:#fcs_ipsec_ext.1-ipsec-protocol[B.3.1.3 FCS_IPSEC_EXT.1 IPsec Protocol 104]
-
-link:#fcs_ntp_ext-protocol[B.3.1.4 FCS_NTP_EXT Protocol 109]
-
-link:#fcs_sshc_ext-fcs_sshs_ext-ssh-protocol[B.3.1.5 FCS_SSHC_EXT & FCS_SSHS_EXT SSH Protocol 110]
-
-link:#fcs_tlsc_ext-fcs_tlss_ext-tls-protocol-1[B.3.1.6 FCS_TLSC_EXT & FCS_TLSS_EXT TLS Protocol 116]
-
-link:#identification-and-authentication-fia-2[B.4 Identification and Authentication (FIA) 120]
-
-link:#authentication-using-x.509-certificates-extended-fia_x509_ext-1[B.4.1 Authentication using X.509 certificates (Extended – FIA_X509_EXT) 120]
-
-link:#fia_x509_ext.1-x.509-certificate-validation[B.4.1.1 FIA_X509_EXT.1 X.509 Certificate Validation 121]
-
-link:#fia_x509_ext.2-x.509-certificate-authentication[B.4.1.2 FIA_X509_EXT.2 X.509 Certificate Authentication 123]
-
-link:#fia_x509_ext.3-x.509-certificate-requests[B.4.1.3 FIA_X509_EXT.3 X.509 Certificate Requests 124]
-
-link:#protection-of-the-tsf-fpt-2[B.5 Protection of the TSF (FPT) 125]
-
-link:#trusted-update-fpt_tud_ext-1[B.5.1 Trusted Update (FPT_TUD_EXT) 125]
-
-link:#fpt_tud_ext.2-trusted-update-based-on-certificates[B.5.1.1 FPT_TUD_EXT.2 Trusted Update based on certificates 125]
-
-link:#security-management-fmt-1[B.6 Security Management (FMT) 125]
-
-link:#management-of-functions-in-tsf-fmt_mof-1[B.6.1 Management of functions in TSF (FMT_MOF) 125]
-
-link:#fmt_mof.1services-management-of-security-functions-behaviour[B.6.1.1 FMT_MOF.1/Services Management of security functions behaviour 125]
-
-link:#fmt_mof.1autoupdate-management-of-security-functions-behaviour[B.6.1.2 FMT_MOF.1/AutoUpdate Management of security functions behaviour 126]
-
-link:#fmt_mof.1functions-management-of-security-functions-behaviour[B.6.1.3 FMT_MOF.1/Functions Management of security functions behaviour 126]
-
-link:#management-of-tsf-data-fmt_mtd-1[B.6.2 Management of TSF data (FMT_MTD) 127]
-
-link:#fmt_mtd.1cryptokeys-management-of-tsf-data[B.6.2.1 FMT_MTD.1/CryptoKeys Management of TSF data 127]
-
-link:#extended-component-definitions[C. Extended Component Definitions 128]
-
-link:#security-audit-fau-3[C.1 Security Audit (FAU) 128]
-
-link:#security-audit-data-generation-fau_gen_ext[C.1.1 Security Audit Data Generation (FAU_GEN_EXT) 128]
-
-link:#fau_-gen_ext.1-security-audit-data-generation-for-distributed-toe-components[C.1.1.1 FAU_ GEN_EXT.1 Security Audit Data Generation for Distributed TOE Components 128]
-
-link:#protected-audit-event-storage-fau_stg_ext[C.1.2 Protected audit event storage (FAU_STG_EXT) 129]
-
-link:#fau_-stg_ext.1-protected-audit-event-storage-1[C.1.2.1 FAU_ STG_EXT.1 Protected Audit Event Storage 130]
-
-link:#fau_-stg_ext.2-counting-lost-audit-data[C.1.2.2 FAU_ STG_EXT.2 Counting lost audit data 130]
-
-link:#fau_-stg_ext.3-action-in-case-of-possible-audit-data-loss[C.1.2.3 FAU_ STG_EXT.3 Action in case of possible audit data loss 131]
-
-link:#fau_-stg_ext.4-protected-local-audit-event-storage-for-distributed-toes[C.1.2.4 FAU_ STG_EXT.4 Protected Local Audit Event Storage for Distributed TOEs 131]
-
-link:#fau_-stg_ext.5-protected-remote-audit-event-storage-for-distributed-toes[C.1.2.5 FAU_ STG_EXT.5 Protected Remote Audit Event Storage for Distributed TOEs 131]
-
-link:#cryptographic-support-fcs-3[C.2 Cryptographic Support (FCS) 132]
-
-link:#random-bit-generation-fcs_rbg_ext[C.2.1 Random Bit Generation (FCS_RBG_EXT) 132]
-
-link:#fcs_rbg_ext.1-random-bit-generation-1[C.2.1.1 FCS_RBG_EXT.1 Random Bit Generation 132]
-
-link:#cryptographic-protocols-fcs_dtlsc_ext-fcs_dtlss_ext-fcs_https_ext-fcs_ipsec_ext-fcs_ntp_ext-fcs_sshc_ext-fcs_sshs_ext-fcs_tlsc_ext-fcs_tlss_ext[C.2.2 Cryptographic Protocols (FCS_DTLSC_EXT, FCS_DTLSS_EXT, FCS_HTTPS_EXT, FCS_IPSEC_EXT, FCS_NTP_EXT, FCS_SSHC_EXT, FCS_SSHS_EXT, FCS_TLSC_EXT, FCS_TLSS_EXT) 133]
-
-link:#fcs_dtlsc_ext-dtls-client-protocol[C.2.2.1 FCS_DTLSC_EXT DTLS Client Protocol 133]
-
-link:#fcs_dtlss_ext-dtls-server-protocol[C.2.2.2 FCS_DTLSS_EXT DTLS Server Protocol 135]
-
-link:#fcs_https_ext.1-https-protocol[C.2.2.3 FCS_HTTPS_EXT.1 HTTPS Protocol 137]
-
-link:#fcs_ipsec_ext.1-ipsec-protocol-1[C.2.2.4 FCS_IPSEC_EXT.1 IPsec Protocol 138]
-
-link:#fcs_ntp_ext.1-ntp-protocol[C.2.2.5 FCS_NTP_EXT.1 NTP Protocol 141]
-
-link:#fcs_sshc_ext.1-ssh-client[C.2.2.6 FCS_SSHC_EXT.1 SSH Client 143]
-
-link:#fcs_sshs_ext.1-ssh-server-protocol[C.2.2.7 FCS_SSHS_EXT.1 SSH Server Protocol 144]
-
-link:#fcs_tlsc_ext-tls-client-protocol[C.2.2.8 FCS_TLSC_EXT TLS Client Protocol 146]
-
-link:#fcs_tlss_ext-tls-server-protocol[C.2.2.9 FCS_TLSS_EXT TLS Server Protocol 148]
-
-link:#identification-and-authentication-fia-3[C.3 Identification and Authentication (FIA) 150]
-
-link:#password-management-fia_pmg_ext[C.3.1 Password Management (FIA_PMG_EXT) 150]
-
-link:#fia_pmg_ext.1-password-management-1[C.3.1.1 FIA_PMG_EXT.1 Password Management 151]
-
-link:#user-identification-and-authentication-fia_uia_ext[C.3.2 User Identification and Authentication (FIA_UIA_EXT) 151]
-
-link:#fia_uia_ext.1-user-identification-and-authentication-1[C.3.2.1 FIA_UIA_EXT.1 User Identification and Authentication 152]
-
-link:#user-authentication-fia_uau_ext[C.3.3 User authentication (FIA_UAU_EXT) 152]
-
-link:#fia_uau_ext.2-password-based-authentication-mechanism-1[C.3.3.1 FIA_UAU_EXT.2 Password-based Authentication Mechanism 153]
-
-link:#authentication-using-x.509-certificates-fia_x509_ext[C.3.4 Authentication using X.509 certificates (FIA_X509_EXT) 153]
-
-link:#fia_x509_ext.1-x.509-certificate-validation-1[C.3.4.1 FIA_X509_EXT.1 X.509 Certificate Validation 154]
-
-link:#fia_x509_ext.2-x509-certificate-authentication[C.3.4.2 FIA_X509_EXT.2 X509 Certificate Authentication 155]
-
-link:#fia_x509_ext.3-x.509-certificate-requests-1[C.3.4.3 FIA_X509_EXT.3 X.509 Certificate Requests 155]
-
-link:#protection-of-the-tsf-fpt-3[C.4 Protection of the TSF (FPT) 156]
-
-link:#protection-of-tsf-data-fpt_skp_ext[C.4.1 Protection of TSF Data (FPT_SKP_EXT) 156]
-
-link:#fpt_skp_ext.1-protection-of-tsf-data-for-reading-of-all-symmetric-keys[C.4.1.1 FPT_SKP_EXT.1 Protection of TSF Data (for reading of all symmetric keys) 156]
-
-link:#protection-of-administrator-passwords-fpt_apw_ext[C.4.2 Protection of Administrator Passwords (FPT_APW_EXT) 157]
-
-link:#fpt_apw_ext.1-protection-of-administrator-passwords-1[C.4.2.1 FPT_APW_EXT.1 Protection of Administrator Passwords 157]
-
-link:#tsf-self-test-fpt_tst_ext[C.4.3 TSF Self-Test (FPT_TST_EXT) 157]
-
-link:#fpt_tst_ext.1-tsf-testing[C.4.3.1 FPT_TST_EXT.1 TSF Testing 157]
-
-link:#trusted-update-fpt_tud_ext-2[C.4.4 Trusted Update (FPT_TUD_EXT) 158]
-
-link:#fpt_tud_ext.1-trusted-update-1[C.4.4.1 FPT_TUD_EXT.1 Trusted Update 159]
-
-link:#fpt_tud_ext.2-trusted-update-based-on-certificates-1[C.4.4.2 FPT_TUD_EXT.2 Trusted Update based on certificates 160]
-
-link:#time-stamps-fpt_stm_ext[C.4.5 Time stamps (FPT_STM_EXT) 160]
-
-link:#fpt_stm_ext.1-reliable-time-stamps-1[C.4.5.1 FPT_STM_EXT.1 Reliable Time Stamps 161]
-
-link:#toe-access-fta-1[C.5 TOE Access (FTA) 161]
-
-link:#tsf-initiated-session-locking-fta_ssl_ext[C.5.1 TSF-initiated Session Locking (FTA_SSL_EXT) 161]
-
-link:#fta_ssl_ext.1-tsf-initiated-session-locking-1[*C.5.1.1* *FTA_SSL_EXT.1* TSF-initiated Session Locking 162]
-
-link:#communication-fco-1[C.6 Communication (FCO) 162]
-
-link:#communication-partner-control-fco_cpc_ext-1[C.6.1 Communication Partner Control (FCO_CPC_EXT) 162]
-
-link:#fco_cpc_ext.1-component-registration-channel-definition-1[*C.6.1.1* *FCO_CPC_EXT.1* Component *Registration Channel Definition* 163]
-
-link:#entropy-documentation-and-assessment[D. Entropy Documentation and Assessment 164]
-
-link:#design-description[D.1 Design Description 164]
-
-link:#entropy-justification[D.2 Entropy Justification 164]
-
-link:#operating-conditions[D.3 Operating Conditions 165]
-
-link:#health-testing[D.4 Health Testing 165]
-
-link:#rationales[E. Rationales 166]
-
-link:#sfr-dependencies-analysis[E.1 SFR Dependencies Analysis 166]
-
-link:#glossary[Glossary 172]
-
-link:#acronyms[Acronyms 173]
+toc::[]
 
 Figures / Tables
 
@@ -622,6 +133,9 @@ link:#_Toc456887395[Table 6: SFR Dependencies Rationale for Mandatory SFRs 168]
 link:#_Toc456887396[Table 7: SFR Dependencies Rationale for Optional SFRs 169]
 
 link:#_Toc27041928[Table 8: SFR Dependencies Rationale for Selection-Based SFRs 172]
+
+:sectnums: all
+:sectnumlevels: 4
 
 == PP Introduction
 
@@ -1103,7 +617,7 @@ For distributed TOEs it is assumed that the availability of all TOE components i
 
 {empty}[OE.COMPONENTS_RUNNING]
 
-==== A.RESIDUAL_INFORMATION 
+==== A.RESIDUAL_INFORMATION
 
 The Administrator must ensure that there is no unauthorized access possible for sensitive residual information (e.g. cryptographic keys, keying material, PINs, passwords etc.) on networking equipment when the equipment is discarded or removed from its operational environment.
 
@@ -1145,7 +659,7 @@ SFR Rationale:
 
 * An advisory notice and consent warning message is required to be displayed by FTA_TAB.1
 
-== Security Objectives 
+== Security Objectives
 
 === Security Objectives for the Operational Environment
 
@@ -1181,7 +695,7 @@ The Administrator’s credentials (private key) used to access the TOE must be p
 
 For distributed TOEs, the Security Administrator ensures that the availability of every TOE component is checked as appropriate to reduce the risk of an undetected attack on (or failure of) one or more TOE components. The Security Administrator also ensures that it is checked as appropriate for every TOE component that the audit functionality is running properly.
 
-==== OE.RESIDUAL_INFORMATION 
+==== OE.RESIDUAL_INFORMATION
 
 The Security Administrator ensures that there is no unauthorized access possible for sensitive residual information (e.g. cryptographic keys, keying material, PINs, passwords etc.) on networking equipment when the equipment is discarded or removed from its operational environment. For vNDs, this applies when the physical platform on which the VM runs is removed from its operational environment.
 
@@ -1567,7 +1081,7 @@ For the avoidance of doubt: the “cryptographic keys” in this SFR include ses
 
 ==== Cryptographic Operation (FCS_COP)
 
-===== FCS_COP.1 Cryptographic Operation 
+===== FCS_COP.1 Cryptographic Operation
 
 *FCS_COP.1/DataEncryption Cryptographic Operation (AES Data Encryption/ Decryption)*
 
@@ -1686,7 +1200,7 @@ The ST author selects the special characters that are supported by the TOE. They
 
 The second assignment should be configured with the largest minimum password length the Security Administrator can configure.
 
-==== User Identification and Authentication (Extended – FIA_UIA_EXT) 
+==== User Identification and Authentication (Extended – FIA_UIA_EXT)
 
 ===== FIA_UIA_EXT.1 User Identification and Authentication
 
@@ -1767,7 +1281,7 @@ These core management requirements are supplemented by selection-based requireme
 
 FMT_MOF.1/ManualUpdate restricts the initiation of manual updates to Security Administrators.
 
-==== Management of TSF Data (FMT_MTD) 
+==== Management of TSF Data (FMT_MTD)
 
 ===== FMT_MTD.1/CoreData Management of TSF Data
 
@@ -1780,7 +1294,7 @@ FMT_MOF.1/ManualUpdate restricts the initiation of manual updates to Security Ad
 
 The word ‘manage’ includes but is not limited to create, initialize, view, change default, modify, delete, clear, and append. This SFR includes also the resetting of user passwords by the Security Administrator. The identifier ‘CoreData’ has been added here to separate this iteration of FMT_MTD.1 from the optional iteration of FMT_MTD.1 defined in Appendix A.4.2.1 (FMT_MTD.1/CryptoKeys).
 
-==== Specification of Management Functions (FMT_SMF) 
+==== Specification of Management Functions (FMT_SMF)
 
 ===== FMT_SMF.1 Specification of Management Functions
 
@@ -1854,7 +1368,7 @@ For distributed TOEs the interaction between TOE components will be configurable
 
 For distributed TOEs that implement a registration channel (as described in FCO_CPC_EXT.1.2), the ST author uses the selection “_Ability to configure the cryptographic functionality_” in this SFR, and its corresponding mapping in the TSS, to describe the configuration of any cryptographic aspects of the registration channel that can be modified by the operational environment in order to improve the channel security (cf. the description of the content of Preparative Procedures in [SD, 3.6.1.2]).
 
-==== Security management roles (FMT_SMR) 
+==== Security management roles (FMT_SMR)
 
 ===== FMT_SMR.2 Restrictions on security roles
 
@@ -2058,7 +1572,7 @@ after a Security Administrator-specified time period of inactivity.
 [arabic, start=36]
 . An interactive session governed by this SFR is a session in which an authenticated state is achieved and then preserved across multiple commands. By contrast, if authentication accompanies each individual command (without preservation of the same authenticated state) then this is not considered an interactive session.
 
-==== Session Locking and Termination (FTA_SSL) 
+==== Session Locking and Termination (FTA_SSL)
 
 ===== FTA_SSL.3 TSF-initiated Termination (Refinement)
 
@@ -2357,7 +1871,7 @@ The audit event “Unsuccessful attempt to validate a certificate” for FIA_X50
 
 === Security Audit (FAU)
 
-==== Security Audit Event Storage (FAU_STG.1 & Extended – FAU_STG_EXT) 
+==== Security Audit Event Storage (FAU_STG.1 & Extended – FAU_STG_EXT)
 
 Local storage space for audit data may be necessary on the TOE itself, and the TOE may then claim protection of the audit trail against unauthorised modification (including deletion) as described in FAU_STG.1. The local storage space for audit data of a Network Device is also limited, and if the local storage space is exceeded then audit data might be lost. A security Administrator might be interested in the number of dropped, overwritten, etc. audit records. This number might serve as an indication if a severe problem has occurred after the storage space was exceeded that continuously generated audit data. Therefore, FAU_STG_EXT.2/LocSpace and FAU_STG_EXT.3/LocSpace are defined to express these optional capabilities of a Network Device.
 
@@ -2457,9 +1971,9 @@ ____
 
 *_The validation of X.509v3 leaf certificates comprises several steps:_*
 
-* *_a) A Certificate Revocation Check refers to the process of determining the current revocation status of an otherwise structurally valid certificate. This is optionally performed when a certificate is used for authentication, however this behaviour must be consistent. If this check is performed, it must be performed for each certificate in the chain up to, but not including, the trust anchor. This means that CA certificates that are not trust anchors, and leaf certificates in the chain, must be checked. It is not required to check the revocation status of any CA certificate designated a trust anchor, however if such check is performed it must be handled consistently with how other certificates are checked.  _*
+* *_a) A Certificate Revocation Check refers to the process of determining the current revocation status of an otherwise structurally valid certificate. This is optionally performed when a certificate is used for authentication, however this behaviour must be consistent. If this check is performed, it must be performed for each certificate in the chain up to, but not including, the trust anchor. This means that CA certificates that are not trust anchors, and leaf certificates in the chain, must be checked. It is not required to check the revocation status of any CA certificate designated a trust anchor, however if such check is performed it must be handled consistently with how other certificates are checked. _*
 +
-*_b) An expiration check must be performed. This check must be conducted for each certificate in the chain, up to and including the trust anchor.  _*
+*_b) An expiration check must be performed. This check must be conducted for each certificate in the chain, up to and including the trust anchor. _*
 +
 *_c) The continuity of the chain must be checked, showing that the signature on each certificate that is presented to the TOE is valid and the chain terminates at the trust anchor._*
 
@@ -2474,7 +1988,7 @@ ____
 
 This requirement applies to certificates that are used and processed by the TSF and restricts the certificates that may be added as trusted CA certificates.
 
-===  
+===
 
 === Protection of the TSF (FPT)
 
@@ -3645,7 +3159,7 @@ Although the functionality in FIA_X509_EXT.1/Rev and FIA_X509_EXT.2 is always re
 
 FIA_X509_EXT.1.1/Rev lists the rules for validating certificates. The ST author selects whether revocation status is verified using OCSP or CRLs. The trusted channel/path protocols may require that certificates are used; this use may require that specific certificate extensions must be present and checked. If the TOE supports functionality that does not use any of the possible values listed in the specific certificate extension, then it is reasonable to process such certificate as the relevant part of the SFR is considered trivially satisfied. However, this does not mean that it is allowable to accept certificates with inappropriate extension values simply because a specific security function is not implemented by the TOE. For example, the TOE should not successfully authenticate a web server that presents an X.509v3 certificate that has extendedKeyUsage set to only OCSPSigning, even if the TOE does not implement OCSP revocation checking. The TOE shall be capable of supporting a minimum path length of three certificates. That is, the TOE shall support a hierarchy comprising of at least a self-signed root CA certificate, a subordinate CA certificate, and a leaf certificate. The chain validation is expected to terminate with a trust anchor. This means the validation can terminate with any trusted CA certificate designated as a trust anchor. This CA certificate must be loaded into the trust store ('certificate store', ' trusted CA Key Store' or similar) managed by the TOE trust store. If the TOE’s trust store supports loading of multiple hierarchical CA certificates or certificate chains, the TOE must clearly indicate all certificates that it considers trust anchors.
 
-The validation of X.509v3 leaf certificates comprises several steps:  
+The validation of X.509v3 leaf certificates comprises several steps: 
 
 [arabic]
 . {blank}
@@ -3891,7 +3405,7 @@ ____
 
 *FAU_STG_EXT.1.3* The TSF shall [selection: _drop new audit data, overwrite previous audit records according to the following rule: [assignment: rule for overwriting previous audit records], [assignment: other action]_] when the local storage space for audit data is full.
 
-=====  FAU_ STG_EXT.2 Counting Lost Audit Data 
+=====  FAU_ STG_EXT.2 Counting Lost Audit Data
 
 *FAU_STG_EXT.2 Counting Lost Audit Data*
 
@@ -5118,7 +4632,7 @@ ____
 
 *FPT_TUD_EXT.1.3* The TSF shall provide means to authenticate firmware/software updates to the TOE using a [selection: _X.509 certificate, digital signature, published hash_] prior to installing those updates.
 
-=====  FPT_TUD_EXT.2 Trusted Update Based on Certificates 
+=====  FPT_TUD_EXT.2 Trusted Update Based on Certificates
 
 *FPT_TUD_EXT.2 Trusted Update Based on Certificates*
 
@@ -5268,7 +4782,7 @@ This appendix describes the required supplementary information for each entropy 
 
 The documentation of the entropy source(s) should be detailed enough that, after reading, the evaluator will thoroughly understand the entropy source and why it can be relied upon to provide sufficient entropy. This documentation should include multiple detailed sections: design description, entropy justification, operating conditions, and health testing. This documentation is not required to be part of the TSS.
 
-=== Design Description 
+=== Design Description
 
 Documentation shall include the design of each entropy source as a whole, including the interaction of all entropy source components. Any information that can be shared regarding the design should also be included for any third-party entropy sources that are included in the product.
 
@@ -5278,7 +4792,7 @@ This design must also include a description of the content of the security bound
 
 If implemented, the design description shall include a description of how third-party applications can add entropy to the RBG. A description of any RBG state saving between power-off and power-on shall be included.
 
-=== Entropy Justification 
+=== Entropy Justification
 
 There should be a technical argument for where the unpredictability in the source comes from and why there is confidence in the entropy source delivering sufficient entropy for the uses made of the RBG output (by this particular TOE). This argument will include a description of the expected min-entropy rate (i.e. the minimum entropy (in bits) per bit or byte of source data) and explain that sufficient entropy is going into the TOE randomizer seeding process. This discussion will be part of a justification for why the entropy source can be relied upon to produce bits with entropy.
 
@@ -5292,11 +4806,11 @@ Regardless of the type of entropy source, the justification will also include ho
 
 The entropy justification shall not include any data added from any third-party application or from any state saving between restarts.
 
-=== Operating Conditions 
+=== Operating Conditions
 
 The entropy rate may be affected by conditions outside the control of the entropy source itself. For example, voltage, frequency, temperature, and elapsed time after power-on are just a few of the factors that may affect the operation of the entropy source. As such, documentation will also include the range of operating conditions under which the entropy source is expected to generate random data. Similarly, documentation shall describe the conditions under which the entropy source is no longer guaranteed to provide sufficient entropy. Methods used to detect failure or degradation of the source shall be included.
 
-=== Health Testing 
+=== Health Testing
 
 More specifically, all entropy source health tests and their rationale will be documented. This will include a description of the health tests, the rate and conditions under which each health test is performed (e.g., at start up, continuously, or on-demand), the expected results for each health test, TOE behaviour upon entropy source failure, and rationale indicating why each test is believed to be appropriate for detecting one or more failures in the entropy source.
 
