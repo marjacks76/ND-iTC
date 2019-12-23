@@ -1,5 +1,8 @@
-image:extracted-media/media/image1.png[image,width=624,height=912]
+:toc:
+:toclevels: 3
+:toc-placement!:
 
+image:extracted-media/media/image1.png[image,width=624,height=912]
 
 *Foreword*
 
@@ -39,272 +42,7 @@ V0.1, 5 September 2014 (Initial release for public review)
 
 This Supporting Document was developed by the ND iTC with representatives from industry, Government agencies, Common Criteria Test Laboratories, and members of academia.
 
-*Table of Contents*
-
-link:#introduction[1 Introduction 9]
-
-link:#technology-area-and-scope-of-supporting-document[1.1 Technology Area and Scope of Supporting Document 9]
-
-link:#structure-of-the-document[1.2 Structure of the Document 9]
-
-link:#application-of-this-supporting-document[1.3 Application of this Supporting Document 10]
-
-link:#terminology[1.4 Terminology 11]
-
-link:#glossary[1.4.1 Glossary 11]
-
-link:#acronyms[1.4.2 Acronyms 11]
-
-link:#evaluation-activities-for-sfrs[2 Evaluation Activities for SFRs 13]
-
-link:#security-audit-fau[2.1 Security Audit (FAU) 14]
-
-link:#fau_gen.1-audit-data-generation[2.1.1 FAU_GEN.1 Audit data generation 14]
-
-link:#fau_gen.2-user-identity-association[2.1.2 FAU_GEN.2 User identity association 16]
-
-link:#fau_stg_ext.1-protected-audit-event-storage[2.1.3 FAU_STG_EXT.1 Protected audit event storage 16]
-
-link:#_Toc25834925[2.2 Cryptographic Support (FCS) 19]
-
-link:#fcs_ckm.1-cryptographic-key-generation[2.2.1 FCS_CKM.1 Cryptographic Key Generation 19]
-
-link:#fcs_ckm.2-cryptographic-key-establishment[2.2.2 FCS_CKM.2 Cryptographic Key Establishment 21]
-
-link:#fcs_ckm.4-cryptographic-key-destruction[2.2.3 FCS_CKM.4 Cryptographic Key Destruction 24]
-
-link:#fcs_cop.1dataencryption-cryptographic-operation-aes-data-encryptiondecryption[2.2.4 FCS_COP.1/DataEncryption Cryptographic Operation (AES Data Encryption/Decryption) 26]
-
-link:#fcs_cop.1siggen-cryptographic-operation-signature-generation-and-verification[2.2.5 FCS_COP.1/SigGen Cryptographic Operation (Signature Generation and Verification 30]
-
-link:#fcs_cop.1hash-cryptographic-operation-hash-algorithm[2.2.6 FCS_COP.1/Hash Cryptographic Operation (Hash Algorithm) 32]
-
-link:#fcs_cop.1keyedhash-cryptographic-operation-keyed-hash-algorithm[2.2.7 FCS_COP.1/KeyedHash Cryptographic Operation (Keyed Hash Algorithm) 33]
-
-link:#fcs_rbg_ext.1-extended-cryptographic-operation-random-bit-generation[2.2.8 FCS_RBG_EXT.1 Extended: Cryptographic Operation (Random Bit Generation) 34]
-
-link:#_Toc25834934[2.3 Identification and Authentication (FIA) 35]
-
-link:#fia_afl.1-authentication-failure-management[2.3.1 FIA_AFL.1 Authentication Failure Management 35]
-
-link:#fia_pmg_ext.1-password-management[2.3.2 FIA_PMG_EXT.1 Password Management 36]
-
-link:#fia_uia_ext.1-user-identification-and-authentication[2.3.3 FIA_UIA_EXT.1 User Identification and Authentication 37]
-
-link:#fia_uau_ext.2-password-based-authentication-mechanism[2.3.4 FIA_UAU_EXT.2 Password-based Authentication Mechanism 38]
-
-link:#fia_uau.7-protected-authentication-feedback[2.3.5 FIA_UAU.7 Protected Authentication Feedback 38]
-
-link:#_Toc25834940[2.4 Security management (FMT) 39]
-
-link:#general-requirements-for-distributed-toes[2.4.1 General requirements for distributed TOEs 39]
-
-link:#fmt_mof.1manualupdate[2.4.2 FMT_MOF.1/ManualUpdate 39]
-
-link:#fmt_mtd.1coredata-management-of-tsf-data[2.4.3 FMT_MTD.1/CoreData Management of TSF Data 40]
-
-link:#fmt_smf.1-specification-of-management-functions[2.4.4 FMT_SMF.1 Specification of Management Functions 41]
-
-link:#fmt_smr.2-restrictions-on-security-roles[2.4.5 FMT_SMR.2 Restrictions on security roles 42]
-
-link:#protection-of-the-tsf-fpt[2.5 Protection of the TSF (FPT) 42]
-
-link:#fpt_skp_ext.1-protection-of-tsf-data-for-reading-of-all-pre-shared-symmetric-and-private-keys[2.5.1 FPT_SKP_EXT.1 Protection of TSF Data (for reading of all pre-shared, symmetric and private keys) 42]
-
-link:#fpt_apw_ext.1-protection-of-administrator-passwords[2.5.2 FPT_APW_EXT.1 Protection of Administrator Passwords 43]
-
-link:#fpt_tst_ext.1-tsf-testing[2.5.3 FPT_TST_EXT.1 TSF testing 43]
-
-link:#fpt_tud_ext.1-trusted-update[2.5.4 FPT_TUD_EXT.1 Trusted Update 44]
-
-link:#fpt_stm_ext.1-reliable-time-stamps[2.5.5 FPT_STM_EXT.1 Reliable Time Stamps 48]
-
-link:#toe-access-fta[2.6 TOE Access (FTA) 49]
-
-link:#fta_ssl_ext.1-tsf-initiated-session-locking[2.6.1 FTA_SSL_EXT.1 TSF-initiated Session Locking 49]
-
-link:#fta_ssl.3-tsf-initiated-termination[2.6.2 FTA_SSL.3 TSF-initiated Termination 50]
-
-link:#fta_ssl.4-user-initiated-termination[2.6.3 FTA_SSL.4 User-initiated Termination 50]
-
-link:#fta_tab.1-default-toe-access-banners[2.6.4 FTA_TAB.1 Default TOE Access Banners 51]
-
-link:#trusted-pathchannels-ftp[2.7 Trusted path/channels (FTP) 51]
-
-link:#ftp_itc.1-inter-tsf-trusted-channel[2.7.1 FTP_ITC.1 Inter-TSF trusted channel 51]
-
-link:#ftp_trp.1admin-trusted-path[2.7.2 FTP_TRP.1/Admin Trusted Path 53]
-
-link:#evaluation-activities-for-optional-requirements[3 Evaluation Activities for Optional Requirements 54]
-
-link:#security-audit-fau-1[3.1 Security Audit (FAU) 54]
-
-link:#fau_stg.1-protected-audit-trail-storage[3.1.1 FAU_STG.1 Protected audit trail storage 54]
-
-link:#fau_stg_ext.2locspace-counting-lost-audit-data[3.1.2 FAU_STG_EXT.2/LocSpace Counting lost audit data 55]
-
-link:#fau_stg_ext.3locspace-action-in-case-of-possible-audit-data-loss[3.1.3 FAU_STG_EXT.3/LocSpace Action in case of possible audit data loss 55]
-
-link:#identification-and-authentication-fia-1[3.2 Identification and Authentication (FIA) 56]
-
-link:#fia_x509_ext.1itt-x.509-certificate-validation[3.2.1 FIA_X509_EXT.1/ITT X.509 Certificate Validation 56]
-
-link:#protection-of-the-tsf-fpt-1[3.3 Protection of the TSF (FPT) 59]
-
-link:#fpt_itt.1-basic-internal-tsf-data-transfer-protection[3.3.1 FPT_ITT.1 Basic internal TSF data transfer protection 59]
-
-link:#trusted-pathchannels-ftp-1[3.4 Trusted path/channels (FTP) 60]
-
-link:#ftp_trp.1join-trusted-path[3.4.1 FTP_TRP.1/Join Trusted Path 60]
-
-link:#communication-fco[3.5 Communication (FCO) 62]
-
-link:#fco_cpc_ext.1-component-registration-channel-definition[3.5.1 FCO_CPC_EXT.1 Component Registration Channel Definition 62]
-
-link:#cryptographic-support-fcs-1[3.6 Cryptographic Support (FCS) 67]
-
-link:#fcs_dtlsc_ext.2-extended-dtls-client-support-for-mutual-authentication[3.6.1 FCS_DTLSC_EXT.2 Extended: DTLS Client support for mutual authentication 67]
-
-link:#fcs_dtlss_ext.2-extended-dtls-server-support-for-mutual-authentication[3.6.2 FCS_DTLSS_EXT.2 Extended: DTLS Server support for mutual authentication 68]
-
-link:#fcs_tlsc_ext.2-extended-tls-client-support-for-mutual-authentication[3.6.3 FCS_TLSC_EXT.2 Extended: TLS Client support for mutual authentication 71]
-
-link:#fcs_tlss_ext.2-extended-tls-server-support-for-mutual-authentication[3.6.4 FCS_TLSS_EXT.2 Extended: TLS Server support for mutual authentication 72]
-
-link:#evaluation-activities-for-selection-based-requirements[4 Evaluation Activities for Selection-Based Requirements 75]
-
-link:#security-audit-fau-2[4.1 Security Audit (FAU) 75]
-
-link:#fau_gen_ext.1-security-audit-data-generation-for-distributed-toe-components[4.1.1 FAU_GEN_EXT.1 Security Audit Data Generation for Distributed TOE Components 75]
-
-link:#fau_stg_ext.4-protected-local-audit-event-storage-for-distributed-toes-fau_stg_ext.5-protected-remote-audit-event-storage-for-distributed-toes[4.1.2 FAU_STG_EXT.4 Protected Local audit event storage for distributed TOEs & FAU_STG_EXT.5 Protected Remote audit event storage for Distributed TOEs 75]
-
-link:#cryptographic-support-fcs-2[4.2 Cryptographic Support (FCS) 76]
-
-link:#fcs_dtlsc_ext.1-extended-dtls-client-protocol-without-mutual-authentication[4.2.1 FCS_DTLSC_EXT.1 Extended: DTLS Client Protocol without mutual authentication 76]
-
-link:#fcs_dtlss_ext.1-extended-dtls-server-protocol-without-mutual-authentication[4.2.2 FCS_DTLSS_EXT.1 Extended: DTLS Server Protocol without mutual authentication 83]
-
-link:#fcs_https_ext.1-https-protocol[4.2.3 FCS_HTTPS_EXT.1 HTTPS Protocol 88]
-
-link:#fcs_ipsec_ext.1-ipsec-protocol[4.2.4 FCS_IPSEC_EXT.1 IPsec Protocol 89]
-
-link:#fcs_ntp_ext.1-ntp-protocol[4.2.5 FCS_NTP_EXT.1 NTP Protocol 99]
-
-link:#fcs_sshc_ext.1-ssh-client[4.2.6 FCS_SSHC_EXT.1 SSH Client 101]
-
-link:#fcs_sshs_ext.1-ssh-server[4.2.7 FCS_SSHS_EXT.1 SSH Server 106]
-
-link:#fcs_tlsc_ext.1-extended-tls-client-protocol-without-mutual-authentication[4.2.8 FCS_TLSC_EXT.1 Extended: TLS Client Protocol without mutual authentication 111]
-
-link:#fcs_tlss_ext.1-extended-tls-server-protocol-without-mutual-authentication[4.2.9 FCS_TLSS_EXT.1 Extended: TLS Server Protocol without mutual authentication 117]
-
-link:#identification-and-authentication-fia-2[4.3 Identification and Authentication (FIA) 122]
-
-link:#fia_x509_ext.1rev-x.509-certificate-validation[4.3.1 FIA_X509_EXT.1/Rev X.509 Certificate Validation 122]
-
-link:#fia_x509_ext.2-x.509-certificate-authentication[4.3.2 FIA_X509_EXT.2 X.509 Certificate Authentication 125]
-
-link:#fia_x509_ext.3-extended-x509-certificate-requests[4.3.3 FIA_X509_EXT.3 Extended: X509 Certificate Requests 126]
-
-link:#protection-of-the-tsf-fpt-2[4.4 Protection of the TSF (FPT) 126]
-
-link:#fpt_tud_ext.2-trusted-update-based-on-certificates[4.4.1 FPT_TUD_EXT.2 Trusted Update based on certificates 126]
-
-link:#security-management-fmt-1[4.5 Security management (FMT) 128]
-
-link:#fmt_mof.1autoupdate-management-of-security-functions-behaviour[4.5.1 FMT_MOF.1/AutoUpdate Management of security functions behaviour 128]
-
-link:#fmt_mof.1functions-management-of-security-functions-behaviour[4.5.2 FMT_MOF.1/Functions Management of security functions behaviour 128]
-
-link:#fmt_mof.1services-management-of-security-functions-behaviour[4.5.3 FMT_MOF.1/Services Management of security functions behaviour 131]
-
-link:#fmt_mtd.1cryptokeys-management-of-tsf-data[4.5.4 FMT_MTD.1/CryptoKeys Management of TSF Data 132]
-
-link:#evaluation-activities-for-sars[5 Evaluation Activities for SARs 133]
-
-link:#ase-security-target-evaluation[5.1 ASE: Security Target Evaluation 133]
-
-link:#general-ase[5.1.1 General ASE 133]
-
-link:#toe-summary-specification-ase_tss.1-for-distributed-toes[5.1.2 TOE summary specification (ASE_TSS.1) for Distributed TOEs 133]
-
-link:#adv-development[5.2 ADV: Development 134]
-
-link:#basic-functional-specification-adv_fsp.1[5.2.1 Basic Functional Specification (ADV_FSP.1) 134]
-
-link:#agd-guidance-documents[5.3 AGD: Guidance Documents 137]
-
-link:#operational-user-guidance-agd_ope.1[5.3.1 Operational User Guidance (AGD_OPE.1) 137]
-
-link:#preparative-procedures-agd_pre.1[5.3.2 Preparative Procedures (AGD_PRE.1) 138]
-
-link:#alc-life-cycle-support[5.4 ALC: Life-cycle Support 139]
-
-link:#labelling-of-the-toe-alc_cmc.1[5.4.1 Labelling of the TOE (ALC_CMC.1) 139]
-
-link:#toe-cm-coverage-alc_cms.1[5.4.2 TOE CM coverage (ALC_CMS.1) 139]
-
-link:#ate-tests[5.5 ATE: Tests 140]
-
-link:#independent-testing-conformance-ate_ind.1[5.5.1 Independent Testing – Conformance (ATE_IND.1) 140]
-
-link:#ava-vulnerability-assessment[5.6 AVA: Vulnerability Assessment 140]
-
-link:#vulnerability-survey-ava_van.1[5.6.1 Vulnerability Survey (AVA_VAN.1) 140]
-
-link:#required-supplementary-information[6 Required Supplementary Information 145]
-
-link:#references[7 References 146]
-
-link:#vulnerability-analysis[A. Vulnerability Analysis 149]
-
-link:#sources-of-vulnerability-information[A.1 Sources of vulnerability information 149]
-
-link:#type-1-hypotheses-public-vulnerability-based[A.1.1 Type 1 Hypotheses – Public-Vulnerability-Based 149]
-
-link:#type-2-hypotheses-itc-sourced[A.1.2 Type 2 Hypotheses – iTC-Sourced 150]
-
-link:#type-3-hypotheses-evaluation-team-generated[A.1.3 Type 3 Hypotheses – Evaluation-Team-Generated 150]
-
-link:#type-4-hypotheses-tool-generated[A.1.4 Type 4 Hypotheses – Tool-Generated 150]
-
-link:#process-for-evaluator-vulnerability-analysis[A.2 Process for Evaluator Vulnerability Analysis 152]
-
-link:#reporting[A.3 Reporting 153]
-
-link:#public-vulnerability-sources[A.4 Public Vulnerability Sources 155]
-
-link:#additional-flaw-hypotheses[A.5 Additional Flaw Hypotheses 156]
-
-link:#introduction-1[A.6 Introduction 156]
-
-link:#evaluator-guidance-for-determining-equivalence[A.7 Evaluator guidance for determining equivalence 157]
-
-link:#strategy[A.7.1 Strategy 157]
-
-link:#guidance-for-network-devices[A.7.2 Guidance for Network Devices 157]
-
-link:#test-presentationtruth-in-advertising[A.8 Test presentation/Truth in advertising 160]
-
-link:#evaluating-additional-components-for-a-distributed-toe[A.9 Evaluating additional components for a distributed TOE 160]
-
-link:#evaluator-actions-for-assessing-the-st[A.9.1 Evaluator Actions for Assessing the ST 161]
-
-link:#evaluator-actions-for-assessing-the-guidance-documentation[A.9.2 Evaluator Actions for Assessing the Guidance Documentation 161]
-
-link:#evaluator-actions-for-testing-the-toe[A.9.3 Evaluator Actions for Testing the TOE 161]
-
-*List of tables*
-
-link:#_Toc473308377[Table 1: Mapping of ADV_FSP.1 CEM Work Units to Evaluation Activities 136]
-
-link:#_Ref453153408[Table 2: Mapping of AVA_VAN.1 CEM Work Units to Evaluation Activities 142]
-
-link:#_Toc412821715[Table 3: Evaluation Equivalency Analysis 160]
-
-:toc: auto
-:toclevels: 4
+toc::[]
 
 :sectnums: all
 :sectnumlevels: 4
@@ -3508,12 +3246,11 @@ Version 2.2, 20 December 2019
 
 [SHAVS] The Secure Hash Algorithm Validation System (SHAVS), Updated: May 21, 2014
 
-:sectnums: none
-= Appendices
 
-:sectnums: all
+
+[appendix]
+== Vulnerability Analysis
 [arabic, start=8]
-==  Vulnerability Analysis
 
 === Sources of vulnerability information
 
@@ -3655,6 +3392,8 @@ https://www.rapid7.com/db/vulnerabilities
 [arabic, start=709]
 . The following additional tests shall be performed:1.) [Conditional]: If the TOE is a TLS server and supports ciphersuites that use RSA transport (e.g. supporting TLS_RSA_WITH_* ciphers) the following test shall be performed. Where RSA Key Establishment schemes are claimed and especially when PKCS#1 v1.5* padding is used, the evaluators shall test for implementation flaws allowing Bleichenbacher and Klima et al. style attacks, including Bock et al's ROBOT attacks of 2017 in the flaw analysis. Even though Bleichenbacher's original paper is two decades old, Bock et al. found these attacks to still be effective in weakening the security of RSA key establishment in current products. Bleichenbacher and Klima et al. style attacks are complex and may be difficult to detect, but a number of software testing tools have been created to assist in that process. The iTC strongly recommends that at least one of the tools mentioned in Bock et al's ROBOT attacks of 2017 webpage or paper, as effective to detect padding oracle attacks, be used to test TOE communications channels using RSA based Key Establishment (related sources: http://archiv.infsec.ethz.ch/education/fs08/secsem/bleichenbacher98.pdf, https://eprint.iacr.org/2003/052, https://robotattack.org/). Network Device Equivalency Considerations
 
+[appendix]
+== Equivalency
 === Introduction
 
 [arabic, start=710]
