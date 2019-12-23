@@ -3,7 +3,7 @@
 :toc-title!:
 :toc-placement!:
 
-image:extracted-media/media/image1.png[image,width=624,height=912]
+image:extracted-media/media/image1.png[image,width=688,height=212]
 
 *Foreword*
 
