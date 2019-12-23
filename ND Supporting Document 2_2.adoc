@@ -1,5 +1,6 @@
 :toc:
 :toclevels: 3
+:toc-title!:
 :toc-placement!:
 
 image:extracted-media/media/image1.png[image,width=624,height=912]
@@ -42,7 +43,17 @@ V0.1, 5 September 2014 (Initial release for public review)
 
 This Supporting Document was developed by the ND iTC with representatives from industry, Government agencies, Common Criteria Test Laboratories, and members of academia.
 
+*Table of Contents*
+
 toc::[]
+
+*List of Tables*
+
+link:#_Toc473308377[Table 1: Mapping of ADV_FSP.1 CEM Work Units to Evaluation Activities]
+
+link:#_Ref453153408[Table 2: Mapping of AVA_VAN.1 CEM Work Units to Evaluation Activities]
+
+link:#_Toc412821715[Table 3: Evaluation Equivalency Analysis]
 
 :sectnums: all
 :sectnumlevels: 4
