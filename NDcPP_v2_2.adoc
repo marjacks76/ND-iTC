@@ -2,7 +2,7 @@
 :toclevels: 3
 :toc-title!:
 :toc-placement!:
-:revnumber: 2.2
+:revnumber: 3.0
 :revdate: 20-12-2019
 
 = collaborative Protection Profile for Network Devices
